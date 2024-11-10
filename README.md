@@ -195,8 +195,8 @@ sudo su -
 <br><br>
 
 ```
-sudo dnf update
-sudo dnf install -y httpd
+dnf update
+dnf install -y httpd 
 ```
 
 <br><br>
