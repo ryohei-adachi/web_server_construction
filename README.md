@@ -235,6 +235,6 @@ Apacheの設定ファイルにアクセス制限に関する設定を行いま�
 <br><br>
 
 ```
-sed -i '/<Directory \"\/var\/www\/html\">/a \t<IfModule mod_bw.c>\n    BandWidthModule On\n    ForceBandWidthModule On\n    BandWidth all 1000\n    MaxConnection all 1\n\t<\/IfModule>' /etc/httpd/conf/httpd.conf
+sed -i '/<Directory \"\/var\/www\/html\">/a <IfModule mod_bw.c>\n    BandWidthModule On\n    ForceBandWidthModule On\n    BandWidth all 1000\n    MaxConnection all 1\n<\/IfModule>' /etc/httpd/conf/httpd.conf
 systemctl restart httpd
 ```
