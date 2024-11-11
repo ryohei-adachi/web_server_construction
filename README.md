@@ -199,7 +199,42 @@ sudo su -
 
 ```
 dnf update
-dnf install -y httpd 
+dnf install -y httpd
+echo "<h1>Hello</h1>" > /var/www/html/index.html
+systemctl start httpd
+systemctl enable httpd
 ```
 
 <br><br>
+
+
+## ⑤mod_bwの導入
+
+<br><br>
+
+mod_bwをApacheに組み込むことで、帯域制限やアクセス制限の設定ができる。
+
+<br><br>
+
++ ターミナルに下記のコマンドを実行してください。
+
+<br><br>
+
+```
+dnf install -y httpd-devel
+wget "https://sourceforge.net/projects/bwmod/files/bwmod/mod_bw%200.92/mod_bw-0.92.tgz"
+tar xfz mod_bw-0.92.tgz
+sed -i 's/remote_addr/client_addr/g' mod_bw.c
+apxs -i -a -c mod_bw.c
+```
+
+<br><br>
+
+Apacheの設定ファイルにアクセス制限に関する設定を行います。
+
+<br><br>
+
+```
+sed -i '/<Directory \"\/var\/www\/html\">/a <IfModule mod_bw.c>\n    BandWidthModule On\n    ForceBandWidthModule On\n    BandWidth all 1000\n    MaxConnection all 1\n<\/IfModule>' /etc/httpd/conf/httpd.conf
+systemctl restart httpd
+```
