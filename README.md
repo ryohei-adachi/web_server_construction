@@ -188,6 +188,9 @@
 sudo su -
 ```
 
+<img src="https://github.com/user-attachments/assets/703389fa-2da9-4176-8d8b-56d5413256e6" width="50%" />
+
+
 ## ④Apacheのインストール
 
 + ターミナルに下記のコマンドを実行してください。
