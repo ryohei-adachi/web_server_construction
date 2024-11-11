@@ -247,7 +247,9 @@ systemctl restart httpd
 
 <br><br>
 
+```
 http://(EC2インスタンスのパブリックIPアドレス)
+```
 
 <br><br>
 
