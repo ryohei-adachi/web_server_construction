@@ -238,3 +238,27 @@ Apacheの設定ファイルにアクセス制限に関する設定を行いま�
 sed -i '/<Directory \"\/var\/www\/html\">/a <IfModule mod_bw.c>\n    BandWidthModule On\n    ForceBandWidthModule On\n    BandWidth all 1000\n    MaxConnection all 1\n<\/IfModule>' /etc/httpd/conf/httpd.conf
 systemctl restart httpd
 ```
+
+## ⑥動作確認
+
+<br><br>
+
+ブラウザを開き、下記URLにアクセスします。
+
+<br><br>
+
+http://(EC2インスタンスのパブリックIPアドレス)
+
+<br><br>
+
+<img src="https://github.com/user-attachments/assets/b1c35018-36a2-43a7-987d-4e74dc0b1a1a" width="50%" />
+
+<br><br>
+
+「F5」キーで連打して、「Service Unavailable」(503エラー)が表示されることを確認する。
+
+<br><br>
+
+<img src="https://github.com/user-attachments/assets/144173a0-8d71-4d47-a52c-a67d66b08a6f" width="50%" />
+
+
